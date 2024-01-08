@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/services_stylesheet.ejs'); %>
+    <%- include('../partials/head.ejs'); %>
+</head>
+<body>
+    <%- include('../partials/navbar.ejs'); %>
+    <div class="section-container">
+        <h2 class="text-center">Services</h2>
+        <% data.forEach((item, index) => { %>
+            <div class="row <%= index % 2 === 1 ? 'alternate-background' : '' %>">
+                <div class="col-md-6">
+                    <img src="<%= item.image %>" alt="Photo" class="img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <h2><%= item.title %></h2>
+                    <p><%= item.content %></p>
+                </div>   
+            </div>
+        <% }) %>
+        <div class="row button-container">
+            <h2 class="service-title">Interested in our services?</h2>
+            <button type="button" class="btn">Make Appointment</button> 
+        </div>
+    </div> 
+    <%- include('../partials/footer.ejs'); %>
+</body>
+</html>

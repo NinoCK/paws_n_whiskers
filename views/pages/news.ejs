@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs'); %>
+    <%- include('../partials/news_stylesheet.ejs'); %>
+</head>
+    <%- include('../partials/navbar.ejs'); %>
+    
+        <div class="news-container">
+            <div class="row">
+                <h2>News</h2>
+                <% newsfeed.forEach((item, index) => { %>
+                <div class="card">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="<%= item.image %>" class="img-fluid" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= item.title %></h5>
+                            <p class="card-text"><%= item.content %></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            <% }) %>
+            </div>
+        </div>
+        <div class="pagination">
+            <ul class="pagination justify-content-center">
+                <% if (page > 1) { %>
+                    <li class="page-item">
+                        <a class="page-link" href="/news?page=<%= page - 1 %>" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                <% } %>
+                <% for (let i = 1; i <= pages; i++) { %>
+                    <li class="page-item <%= page == i ? 'active' : '' %>">
+                        <a class="page-link" href="/news?page=<%= i %>"><%= i %></a>
+                    </li>
+                <% } %>
+                <% if (page < pages) { %>
+                    <li class="page-item">
+                        <a class="page-link" href="/news?page=<%= page + 1 %>">Next</a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    <%- include('../partials/footer.ejs'); %>
+</body>
+</html>

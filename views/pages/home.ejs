@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs'); %>
+    <%- include('../partials/home_stylesheet.ejs'); %>
+</head>
+<body>
+    <%- include('../partials/navbar.ejs'); %>
+    <div class="welcome-container">
+        <img src="Welcome_message.jpg" alt="">
+        <div class="overlay"></div>
+        <h1>Welcome</h1>
+        <h2>At Paws n' Whiskers, we understand that your pets are cherished members of your family. </h2>
+        <button type="button" class="btn">Make Appointment</button>
+    </div>
+    <div class="services-container p-2">
+        <%for(var i = 0; i < services.length; i++) {%>
+            <div class="service">
+                <img src="<%= services[i].image %>" alt="">
+                <h3><%= services[i].title %></h3>
+                <p><%= services[i].content %></p>
+            </div>
+        <%}%>
+    </div>
+    <div class="news-container">
+        <div class="description">
+            <h2>News</h2>
+            <p>Stay updated with the latest news!</p>
+        </div>
+        <% newsfeed.slice(0, 4).forEach(function(article) { %>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col m-4">
+                    <div class="card">
+                        <img src="<%= article.image %>" alt="<%= article.title %>">
+                        <div class="card-body">
+                            <h2 class="card-title"><%= article.title %></h2>
+                            <p class="card-text"><%= article.content.slice(0,160) %>...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+        <div class="more-news">
+            <a id="more_news"href="/news">More News</a>
+        </div>
+    </div>
+    <div class="contact-information">
+        <div class="description">
+            <h2>Contact Information</h2>
+            <p>Get in touch with us!</p>
+        </div>
+        <div class="row contact-container">
+            <div class="col contact">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>kkonis@nyc.gr <br> <br> <br></p>
+            </div>
+            <div class="col contact">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Address</h3>
+                <p>1234 Main St <br> San Francisco <br> CA 94122</p>
+            </div>
+            <div class="col contact">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Phone</h3>
+                <p>(415) 555-1234 <br> <br> <br> </p>
+            </div>
+        </div>
+        <div class="description" style="background-color:#E5FFFB; padding-top: 40px; padding-bottom: 40px;">
+            <h2>Open Hours</h2>
+            <p>Monday - Friday: 8:00 AM - 5:00 PM <br> Saturday: 8:00 AM - 3:00 PM <br> Sunday: Closed</p>
+
+        </div>
+    </div>
+    <%- include('../partials/footer.ejs'); %>
+    
+
+</body>
+</html>
