@@ -3,6 +3,7 @@
 <head>
     <%- include('../partials/head.ejs'); %>
     <%- include('../partials/home_stylesheet.ejs'); %>
+    <title>Paws n Whiskers</title>
 </head>
 <body>
     <%- include('../partials/navbar.ejs'); %>
@@ -11,7 +12,7 @@
         <div class="overlay"></div>
         <h1>Welcome</h1>
         <h2>At Paws n' Whiskers, we understand that your pets are cherished members of your family. </h2>
-        <button type="button" class="btn">Make Appointment</button>
+        <button type="button" class="btn" onclick="window.location.href='/login'">Make Appointment</button>
     </div>
     <div class="services-container p-2">
         <%for(var i = 0; i < services.length; i++) {%>
@@ -73,7 +74,5 @@
         </div>
     </div>
     <%- include('../partials/footer.ejs'); %>
-    
-
 </body>
 </html>

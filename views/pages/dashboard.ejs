@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs'); %>
+    <title>Dashboard</title>
+</head>
+<body>
+    <%- include('../partials/navbar.ejs'); %>
+    <table id="appointments" class="table">
+        <thead>
+            <tr>
+                <th>Pet Name</th>
+                <th>Pet Type</th>
+                <th>Pet Age</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Reason</th>
+            </tr>
+        </thead>
+            <tbody>
+                <% appointments.forEach(function(appointment) { %>
+                    <tr>
+                        <td><%= appointment.petName %></td>
+                        <td><%= appointment.petType %></td>
+                        <td><%= appointment.petAge %></td>
+                        <td><%= appointment.date %></td>
+                        <td><%= appointment.time %></td>
+                        <td><%= appointment.reason %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+    </table>
+    <%- include('../partials/footer.ejs'); %>
+</body>
+</html>

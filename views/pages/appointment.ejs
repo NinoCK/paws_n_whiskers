@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs'); %>
+    <title>Appointment</title>
+    <style>
+        .message-container h1{
+            font-size: 2.5rem;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            color: #48C5B5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container h2{
+            font-size: 2rem;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            color: #48C5B5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn {
+            background-color: #48C5B5;
+            font-weight: bold;
+            border-color: #48C5B5;
+            color: white;
+        }
+        .btn:hover {
+            background-color: #3EA99F;
+            border-color: #3EA99F;
+        }
+        .btn:active {
+            background-color: #3EA99F;
+            border-color: #3EA99F;
+        }
+        .container a{
+            color: #48C5B5;
+        }
+        .form{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-control{
+            min-width: 300px;
+            width: 350px;
+        }
+        .form-control:focus {
+            border-color: #48C5B5;
+            box-shadow: 0 0 0 0.25rem rgba(72, 197, 181, 0.25);
+        }
+        .invalid-field{
+            color:#48C5B5;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../partials/navbar.ejs'); %>
+    <div class="message-container">
+        <h1>Appointment Form</h1>
+    </div>
+    
+    <div class="form-container">
+        <form action="/appointment" method="POST" id="appointmentForm">
+            <div class="mb-2">
+                <label for="pet_name">Pet Name:</label>
+                <input type="text" id="pet_name" name="petName" class="form-control">
+                <span id="petNameError" class="invalid-field"></span>
+            </div>
+            <div class="mb-2">
+                <label for="pet_type">Pet Type:</label>
+                <input type="text" id="pet_type" name="petType" class="form-control">
+                <span id="petTypeError" class="invalid-field"></span>
+            </div>
+            <div class="mb-2">
+                <label for="pet_age">Pet Age:</label>
+                <input type="number" id="pet_age" name="petAge" class="form-control">
+                <span id="petAgeError" class="invalid-field"></span>
+            </div>
+            <div class="mb-2">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" class="form-control">
+                <span id="dateError" class="invalid-field"></span>
+            </div>
+            <div class="mb-2">
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" class="form-control">
+                <span id="timeError" class="invalid-field"></span>
+            </div>
+            <div class="mb-2">
+                <label for="reason">Reason:</label>
+                <textarea id="reason" name="reason" class="form-control"></textarea>
+                <span id="reasonError" class="invalid-field"></span>
+            </div>
+            <div class="mb-2">
+                <input type="submit" value="Submit" class="btn"  onclick="displayAlert()">
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    function displayAlert() {
+        alert('Submission successful!');
+        window.location.href = '/';
+    }
+    </script>
+<%- include('../partials/appointment_error.ejs'); %>
+<%- include('../partials/footer.ejs'); %>
+</html>

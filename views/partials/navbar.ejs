@@ -24,6 +24,9 @@
           <li class="nav-item">
             <a id="login-link" class="nav-link" href="/login">Login/Register</a>
           </li>
+          <li class="nav-item" id="logout-item" style="display: none;">
+            <a id="logout-link" class="nav-link" href="/logout">Logout</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -35,8 +38,6 @@
     background-color: #ffffff;
     z-index: 1;
     width: 100%;
-    
-    
   }
   .navbar-brand {
     color: #48C5B5;
@@ -52,31 +53,54 @@
 
 <script>
     function setActiveLink() { //function that sets the active link color and class based on the page we are on
-      const path = window.location.pathname;
-      const homeLink = document.querySelector('#home-link');
-      const servicesLink = document.querySelector('#services-link');
-      const newsLink = document.querySelector('#news-link');
-      const contactLink = document.querySelector('#contact-link');
-      const loginLink = document.querySelector('#login-link');
-      const activeLink = '#48C5B5';
+      const path = window.location.pathname; // get the current path
+      const homeLink = document.querySelector('#home-link'); // get the home link from the navbar
+      const servicesLink = document.querySelector('#services-link'); // get the services link from the navbar
+      const newsLink = document.querySelector('#news-link'); // get the news link from the navbar
+      const contactLink = document.querySelector('#contact-link'); // get the contact link from the navbar
+      const loginLink = document.querySelector('#login-link'); // get the login link from the navbar
+    
+      const activeLink = '#48C5B5'; // set the active link color to #48C5B5
 
-      if (path === '/') {
+      if (path === '/') { // if the path is /, set the home link to active
         homeLink.classList.add('active');
         homeLink.style.color = activeLink;
-      } else if (path === '/services') {
+      } else if (path === '/services') { // if the path is /services, set the services link to active
         servicesLink.classList.add('active');
         servicesLink.style.color = activeLink;
-      } else if (path === '/news') {
+      } else if (path === '/news') { // if the path is /news, set the news link to active
         newsLink.classList.add('active');
         newsLink.style.color = activeLink;
-      } else if (path === '/contact') {
+      } else if (path === '/contact') { // if the path is /contact, set the contact link to active
         contactLink.classList.add('active');
         contactLink.style.color = activeLink;
-      } else if (path === '/login') {
+      } else if (path === '/login') { // if the path is /login, set the login link to active
+        loginLink.classList.add('active');
+        loginLink.style.color = activeLink;
+      } else if (path === '/appointment') { // if the path is /appointment, set the login link to active
+        loginLink.classList.add('active');
+        loginLink.style.color = activeLink;
+      } else if ([ath === '/register']) { // if the path is /register, set the login link to active
         loginLink.classList.add('active');
         loginLink.style.color = activeLink;
       }
     }
-    setActiveLink();
+    function setActiveLink() { // function that sets the active link color and class based on the page we are on
+    
+    const loginItem = document.querySelector('#login-item'); // get the login item from the navbar
+    const logoutItem = document.querySelector('#logout-item'); // get the logout item from the navbar
+
+   
+    const isLoggedIn = req.session && req.session.user ? true : false; // check if the user is logged in
+
+    if (isLoggedIn) { // if the user is logged in, hide the login item and show the logout item
+      loginItem.style.display = 'none'; 
+      logoutItem.style.display = 'block';
+    } else { // if the user is not logged in, hide the logout item and show the login item
+      loginItem.style.display = 'block';
+      logoutItem.style.display = 'none';
+    }
+  }
+    setActiveLink(); // call the function on page load
     
 </script>

@@ -1,0 +1,63 @@
+<script>
+    document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+        var username = document.getElementById('username').value;
+        var pet_name = document.getElementById('pet_name').value;
+        var pet_type = document.getElementById('pet_type').value;
+        var pet_breed = document.getElementById('pet_breed').value;
+        var pet_age = document.getElementById('pet_age').value;
+        var date = document.getElementById('date').value;
+        var time = document.getElementById('time').value;
+        var reason = document.getElementById('reason').value;
+
+        var usernameError = document.getElementById('usernameError');
+        var petNameError = document.getElementById('petNameError');
+        var petTypeError = document.getElementById('petTypeError');
+        var petBreedError = document.getElementById('petBreedError');
+        var petAgeError = document.getElementById('petAgeError');
+        var dateError = document.getElementById('dateError');
+        var timeError = document.getElementById('timeError');
+        var reasonError = document.getElementById('reasonError');
+
+        usernameError.textContent = '';
+        petNameError.textContent = '';
+        petTypeError.textContent = '';
+        petBreedError.textContent = '';
+        petAgeError.textContent = '';
+        dateError.textContent = '';
+        timeError.textContent = '';
+        reasonError.textContent = '';
+
+        if (!username) {
+            usernameError.textContent = 'Username is required';
+            event.preventDefault();
+        }
+        if (!pet_name) {
+            petNameError.textContent = 'Pet name is required';
+            event.preventDefault();
+        }
+        if (!pet_type) {
+            petTypeError.textContent = 'Pet type is required';
+            event.preventDefault();
+        }
+        if (!pet_breed) {
+            petBreedError.textContent = 'Pet breed is required';
+            event.preventDefault();
+        }
+        if (!pet_age) {
+            petAgeError.textContent = 'Pet age is required';
+            event.preventDefault();
+        }
+        if (!date) {
+            dateError.textContent = 'Date is required';
+            event.preventDefault();
+        }
+        if (!time) {
+            timeError.textContent = 'Time is required';
+            event.preventDefault();
+        }
+        if (!reason) {
+            reasonError.textContent = 'Reason is required';
+            event.preventDefault();
+        }
+    });
+</script>
